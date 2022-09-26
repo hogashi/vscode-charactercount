@@ -27,7 +27,11 @@ export function activate(ctx: ExtensionContext) {
 }
 
 export class WordCounter {
-  private _statusBarItem: StatusBarItem;
+  private _statusBarItem: StatusBarItem | null;
+
+  constructor() {
+    this._statusBarItem = null;
+  }
 
   public updateWordCount() {
     // Create as needed
@@ -72,7 +76,7 @@ export class WordCounter {
   }
 
   public dispose() {
-    this._statusBarItem.dispose();
+    this._statusBarItem?.dispose();
   }
 }
 
