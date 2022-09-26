@@ -55,10 +55,7 @@ export class CharacterCounter {
       let characterCount = this._getCharacterCount(doc);
 
       // Update the status bar
-      this._statusBarItem.text =
-        characterCount !== 1
-          ? `$(pencil) ${characterCount} Characters`
-          : '$(pencil) 1 Character';
+      this._statusBarItem.text = `$(pencil) ${characterCount} char`;
       this._statusBarItem.show();
     } else {
       this._statusBarItem.hide();
