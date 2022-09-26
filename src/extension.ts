@@ -14,26 +14,28 @@ import {
 export function activate(ctx: ExtensionContext) {
   // Use the console to output diagnostic information (console.log) and errors (console.error)
   // This line of code will only be executed once when your extension is activated
-  console.log('Congratulations, your extension "Wordcount" is now active!');
+  // console.log(
+  //   'Congratulations, your extension "Charactercount" is now active!'
+  // );
 
-  // create a new word counter
-  let wordCounter = new WordCounter();
-  let controller = new WordCounterController(wordCounter);
+  // create a new character counter
+  let characterCounter = new CharacterCounter();
+  let controller = new CharacterCounterController(characterCounter);
 
   // add to a list of disposables which are disposed when this extension
   // is deactivated again.
   ctx.subscriptions.push(controller);
-  ctx.subscriptions.push(wordCounter);
+  ctx.subscriptions.push(characterCounter);
 }
 
-export class WordCounter {
+export class CharacterCounter {
   private _statusBarItem: StatusBarItem | null;
 
   constructor() {
     this._statusBarItem = null;
   }
 
-  public updateWordCount() {
+  public updateCharacterCount() {
     // Create as needed
     if (!this._statusBarItem) {
       this._statusBarItem = window.createStatusBarItem(StatusBarAlignment.Left);
@@ -50,29 +52,31 @@ export class WordCounter {
 
     // Only update status if an MD file
     if (doc.languageId === 'markdown') {
-      let wordCount = this._getWordCount(doc);
+      let characterCount = this._getCharacterCount(doc);
 
       // Update the status bar
       this._statusBarItem.text =
-        wordCount !== 1 ? `$(pencil) ${wordCount} Words` : '$(pencil) 1 Word';
+        characterCount !== 1
+          ? `$(pencil) ${characterCount} Characters`
+          : '$(pencil) 1 Character';
       this._statusBarItem.show();
     } else {
       this._statusBarItem.hide();
     }
   }
 
-  public _getWordCount(doc: TextDocument): number {
+  public _getCharacterCount(doc: TextDocument): number {
     let docContent = doc.getText();
 
     // Parse out unwanted whitespace so the split is accurate
     docContent = docContent.replace(/(< ([^>]+)<)/g, '').replace(/\s+/g, ' ');
     docContent = docContent.replace(/^\s\s*/, '').replace(/\s\s*$/, '');
-    let wordCount = 0;
+    let characterCount = 0;
     if (docContent != '') {
-      wordCount = docContent.split(' ').length;
+      characterCount = docContent.split(' ').length;
     }
 
-    return wordCount;
+    return characterCount;
   }
 
   public dispose() {
@@ -80,13 +84,13 @@ export class WordCounter {
   }
 }
 
-class WordCounterController {
-  private _wordCounter: WordCounter;
+class CharacterCounterController {
+  private _characterCounter: CharacterCounter;
   private _disposable: Disposable;
 
-  constructor(wordCounter: WordCounter) {
-    this._wordCounter = wordCounter;
-    this._wordCounter.updateWordCount();
+  constructor(characterCounter: CharacterCounter) {
+    this._characterCounter = characterCounter;
+    this._characterCounter.updateCharacterCount();
 
     // subscribe to selection change and editor activation events
     let subscriptions: Disposable[] = [];
@@ -98,7 +102,7 @@ class WordCounterController {
   }
 
   private _onEvent() {
-    this._wordCounter.updateWordCount();
+    this._characterCounter.updateCharacterCount();
   }
 
   public dispose() {
