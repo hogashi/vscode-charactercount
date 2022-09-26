@@ -66,17 +66,10 @@ export class CharacterCounter {
   }
 
   public _getCharacterCount(doc: TextDocument): number {
-    let docContent = doc.getText();
-
-    // Parse out unwanted whitespace so the split is accurate
-    docContent = docContent.replace(/(< ([^>]+)<)/g, '').replace(/\s+/g, ' ');
-    docContent = docContent.replace(/^\s\s*/, '').replace(/\s\s*$/, '');
-    let characterCount = 0;
-    if (docContent != '') {
-      characterCount = docContent.split(' ').length;
-    }
-
-    return characterCount;
+    const docContent = doc.getText();
+    // count character with code point (not String length)
+    // to count surrogate pair as 1 character
+    return Array.from(docContent).length;
   }
 
   public dispose() {
