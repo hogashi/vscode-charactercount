@@ -1,5 +1,6 @@
 {
   "name": "vscode-charactercount",
+  "publisher": "hogashi",
   "displayName": "vscode-charactercount",
   "description": "counts characters in active file",
   "version": "0.0.1",
