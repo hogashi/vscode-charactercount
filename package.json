@@ -3,7 +3,7 @@
   "publisher": "hogashi",
   "displayName": "vscode-charactercount",
   "description": "counts characters in active file",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "repository": "https://github.com/hogashi/vscode-charactercount",
   "engines": {
     "vscode": "^1.71.0"
