@@ -60,7 +60,7 @@ export class CharacterCounter {
   public _getCharacterCount(doc: TextDocument): number {
     const docContent = doc.getText();
     // count character with code point (not String length)
-    // to count surrogate pair as 1 character
+    // to count wide characters and surrogate pair as 1 character
     return Array.from(docContent).length;
   }
 
