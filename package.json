@@ -1,7 +1,7 @@
 {
   "name": "vscode-charactercount",
   "displayName": "vscode-charactercount",
-  "description": "",
+  "description": "counts characters in active file",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.71.0"
@@ -13,14 +13,6 @@
     "onStartupFinished"
   ],
   "main": "./out/extension.js",
-  "contributes": {
-    "commands": [
-      {
-        "command": "vscode-charactercount.helloWorld",
-        "title": "Hello World"
-      }
-    ]
-  },
   "scripts": {
     "vscode:prepublish": "yarn run compile",
     "compile": "tsc -p ./",
