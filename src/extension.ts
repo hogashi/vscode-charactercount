@@ -50,16 +50,11 @@ export class CharacterCounter {
 
     let doc = editor.document;
 
-    // Only update status if an MD file
-    if (doc.languageId === 'markdown') {
-      let characterCount = this._getCharacterCount(doc);
+    let characterCount = this._getCharacterCount(doc);
 
-      // Update the status bar
-      this._statusBarItem.text = `$(pencil) ${characterCount} char`;
-      this._statusBarItem.show();
-    } else {
-      this._statusBarItem.hide();
-    }
+    // Update the status bar
+    this._statusBarItem.text = `$(pencil) ${characterCount} char`;
+    this._statusBarItem.show();
   }
 
   public _getCharacterCount(doc: TextDocument): number {
