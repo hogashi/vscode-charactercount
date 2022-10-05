@@ -10,12 +10,7 @@
       "postUpdateOptions": ["yarnDedupeHighest"]
     },
     {
-      "packagePatterns": ["^@types/"],
-      "matchUpdateTypes": ["patch"],
-      "enabled": false,
-    },
-    {
-      "packagePatterns": ["^node$"],
+      "matchPackagePatterns": ["^@types/", "^node$"],
       "matchUpdateTypes": ["patch"],
       "enabled": false,
     }
