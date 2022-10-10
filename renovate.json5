@@ -5,7 +5,7 @@
   ],
   "packageRules": [
     {
-      "updateTypes": ["minor", "patch", "pin", "digest"],
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
       "automerge": true,
       "postUpdateOptions": ["yarnDedupeHighest"]
     },
@@ -13,6 +13,11 @@
       "matchPackagePatterns": ["^@types/", "^node$"],
       "matchUpdateTypes": ["patch"],
       "enabled": false,
+    },
+    {
+      "matchPackagePatterns": ["^@types/",
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
+      "automerge": true,
     }
   ]
 }
