@@ -15,7 +15,7 @@
       "enabled": false,
     },
     {
-      "matchPackagePatterns": ["^@types/",
+      "matchPackagePatterns": ["^@types/"],
       "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
       "automerge": true,
     }
