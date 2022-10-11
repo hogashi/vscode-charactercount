@@ -13,11 +13,6 @@
       "matchPackagePatterns": ["^@types/", "^node$"],
       "matchUpdateTypes": ["patch"],
       "enabled": false
-    },
-    {
-      "matchPackagePatterns": ["^@types/"],
-      "matchUpdateTypes": ["minor", "pin", "digest"],
-      "automerge": true
     }
   ]
 }
