@@ -3,7 +3,7 @@ on:
   pull_request:
 
 jobs:
-  tsc:
+  compile:
     name: compile
     runs-on: ubuntu-latest
     steps:
