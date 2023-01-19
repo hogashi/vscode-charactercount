@@ -9,7 +9,13 @@
     {
       "matchPackagePatterns": ["^@types/", "^node$"],
       "matchUpdateTypes": ["patch"],
-      "enabled": false
-    }
+      "enabled": false,
+    },
+    // automerge eslint config when green even if major
+    {
+      "matchPackagePatterns": ["^eslint-config-standard-with-typescript$"],
+      "matchUpdateTypes": ["major"],
+      "automerge": true,
+    },
   ]
 }
