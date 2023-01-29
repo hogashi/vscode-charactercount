@@ -3,10 +3,10 @@
 import {
   window,
   Disposable,
-  ExtensionContext,
+  type ExtensionContext,
   StatusBarAlignment,
-  StatusBarItem,
-  TextDocument
+  type StatusBarItem,
+  type TextDocument
 } from 'vscode'
 
 // this method is called when your extension is activated. activation is
