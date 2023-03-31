@@ -7,6 +7,10 @@
   "labels": ["dependencies"],
   "packageRules": [
     {
+      "stabilityDays": 7,
+      "internalChecksFilter": "strict",
+    },
+    {
       "matchPackagePatterns": ["^@types/", "^node$"],
       "matchUpdateTypes": ["patch"],
       "enabled": false,
